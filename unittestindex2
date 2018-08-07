@@ -28,7 +28,7 @@ AACAGCGA
 FFFFFFFF
 @HWI-ST0747:233:C0RH3ACXX:1:1206:7363:63776 1:N:0:
 AACAGCGA
-+matches to AACAGCGA (2/4), qscore ave = 30, indexhop sort
++matches to AACAGCGA (4/4), qscore ave = 30, indexhop sort
 ====AAAA
 @HWI-ST0747:233:C0RH3ACXX:1:1206:7295:63779 1:N:0:
 GATCAAGG
