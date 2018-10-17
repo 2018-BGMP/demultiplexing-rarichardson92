@@ -439,73 +439,73 @@ Percentage of high quality read sets with index hopping: 0.0%</code></pre>
 </div>
 <div id="demultiplexing-file-tests" class="section level1">
 <h1>Demultiplexing file tests:</h1>
-<p>Unfortunately, even after implementing some optimization techniques discussed in class on 16Oct2018, program is still slower than ideal. Several different runs were attempted to acheive completion. The following is the line count results of a 6 hour updated python script where index quality is set to 36:</p>
-<p>Additional updates will be added as completion occurs.</p>
-<pre class="r"><code>[rrichard@n053 part2]$ wc -l *.fastq
-   13643040 AACAGCGA.r1.fastq
-   13643040 AACAGCGA.r2.fastq
-   13576592 ACGATCAG.r1.fastq
-   13576592 ACGATCAG.r2.fastq
-   17276064 AGAGTCCA.r1.fastq
-   17276064 AGAGTCCA.r2.fastq
-   13939846 AGGATAGC.r1.fastq
-   13939846 AGGATAGC.r2.fastq
-   15492828 ATCATGCG.r1.fastq
-   15492828 ATCATGCG.r2.fastq
-   10338620 ATCGTGGT.r1.fastq
-   10338620 ATCGTGGT.r2.fastq
-    5153076 CACTTCAC.r1.fastq
-    5153076 CACTTCAC.r2.fastq
-    9612288 CGATCGAT.r1.fastq
-    9612288 CGATCGAT.r2.fastq
-    5978864 CGGTAATC.r1.fastq
-    5978864 CGGTAATC.r2.fastq
-   29400858 CTAGCTCA.r1.fastq
-   29400858 CTAGCTCA.r2.fastq
-   55015834 CTCTGGAT.r1.fastq
-   55015834 CTCTGGAT.r2.fastq
-    9876424 GATCAAGG.r1.fastq
-    9876424 GATCAAGG.r2.fastq
-    6143816 GATCTTGC.r1.fastq
-    6143816 GATCTTGC.r2.fastq
-    9314886 GCTACTCT.r1.fastq
-    9314886 GCTACTCT.r2.fastq
-   12585190 GTAGCGTA.r1.fastq
-   12585190 GTAGCGTA.r2.fastq
-   13906714 GTCCTAAG.r1.fastq
-   13939734 GTCCTAAG.r2.fastq
-   96877770 TACCGGAT.r1.fastq
-   96910790 TACCGGAT.r2.fastq
-   16648678 TAGCCATG.r1.fastq
-   16648678 TAGCCATG.r2.fastq
-   15558300 TATGGCAC.r1.fastq
-   15558300 TATGGCAC.r2.fastq
-    5549346 TCGACAAG.r1.fastq
-    5549346 TCGACAAG.r2.fastq
-   14501110 TCGAGAGT.r1.fastq
-   14501110 TCGAGAGT.r2.fastq
-    6308934 TCGGATTC.r1.fastq
-    6308934 TCGGATTC.r2.fastq
-   64399920 TCTTCGAC.r1.fastq
-   64432940 TCTTCGAC.r2.fastq
-   26031424 TGTTCCGT.r1.fastq
-   26031424 TGTTCCGT.r2.fastq
-  974359904 total
+<p>Output (2.2) Note that while mismatch tolerance defaults to 1, mismatching function removed for 2.2 script</p>
+<pre class="r"><code>Parameters:
+Demultiplexing run on the following files: 1294_S1_L008_R1_001.fastq.gz 1294_S1_L008_R4_001.fastq.gz 1294_S1_L008_R2_001.fastq.gz 1294_S1_L008_R3_001.fastq.gz
+Number of records set to 363246735
+Index mismatch tolerance set to 1
+Index quality score mean cutoff set to 36
+Index file used for demultiplexing: Indexall.txt
+Full set of input indexes as follows:
+dict_keys(['ACGATCAG', 'TCGACAAG', 'TCTTCGAC', 'ATCATGCG', 'AACAGCGA', 'TACCGGAT', 'CGGTAATC', 'TCGGATTC', 'GCTACTCT', 'CTCTGGAT', 'GATCTTGC', 'CTAGCTCA', 'TAGCCATG', 'TGTTCCGT', 'GTCCTAAG', 'AGAGTCCA', 'TCGAGAGT', 'CGATCGAT', 'TATGGCAC', 'GTAGCGTA', 'AGGATAGC', 'ATCGTGGT', 'CACTTCAC', 'GATCAAGG'])
+Please refer arguments in the &quot;--help&quot; menu to adjust parameters.
 
-[rrichard@n053 part2]$ zcat unknown.r1.gz | wc -l
+Number of good reads per index, percentage of all reads:
+GTAGCGTA 5327732 1.4666978355634772%
+CGATCGAT 4013657 1.104939594295321%
+GATCAAGG 4183406 1.1516706406184214%
+AACAGCGA 5712013 1.5724884629726952%
+TAGCCATG 6987875 1.9237268574485604%
+CGGTAATC 2514727 0.6922917008462581%
+CTCTGGAT 23081115 6.3541149241162485%
+TACCGGAT 41086156 11.310812194912089%
+CTAGCTCA 12311999 3.389431428750488%
+CACTTCAC 2198222 0.6051594655076529%
+GCTACTCT 3947003 1.0865900831840924%
+ACGATCAG 5648652 1.5550454982066115%
+TATGGCAC 6580555 1.8115937091630019%
+TGTTCCGT 10778791 2.967346974226761%
+GTCCTAAG 5898336 1.6237822481735453%
+TCGACAAG 2361480 0.6501035721628716%
+TCTTCGAC 27212057 7.491342489286243%
+ATCATGCG 6563108 1.806790637774074%
+ATCGTGGT 4328417 1.1915914399065417%
+TCGAGAGT 5975293 1.6449681233886384%
+TCGGATTC 2667537 0.7343595256265689%
+GATCTTGC 2569902 0.7074811009657114%
+AGAGTCCA 7186159 1.9783134458180331%
+AGGATAGC 5801599 1.597151038398184%
+Index hopping per index (sorted by index 1), percentage of all reads:
+GTAGCGTA 4644 0.0012784698532803053%
+CGATCGAT 3477 0.0009572006201239497%
+GATCAAGG 8926 0.0024572829264384167%
+AACAGCGA 4874 0.0013417876970043515%
+TAGCCATG 3592 0.0009888595419859727%
+CGGTAATC 4545 0.0012512156509816943%
+CTCTGGAT 18431 0.005073961642077802%
+TACCGGAT 29263 0.008055956786507662%
+CTAGCTCA 17901 0.004928055306539782%
+CACTTCAC 4025 0.0011080622651708073%
+GCTACTCT 3372 0.000928294647989059%
+ACGATCAG 3891 0.0010711727388272327%
+TATGGCAC 61193 0.016846125265241544%
+TGTTCCGT 58925 0.016221756267127907%
+GTCCTAAG 7905 0.0021762067592981946%
+TCGACAAG 6704 0.0018455774970695883%
+TCTTCGAC 20805 0.005727511907299043%
+ATCATGCG 5291 0.0014565857006257745%
+ATCGTGGT 3547 0.0009764712682138768%
+TCGAGAGT 4649 0.0012798463281438715%
+TCGGATTC 2340 0.0006441902361489912%
+GATCTTGC 1876 0.0005164533688100458%
+AGAGTCCA 4572 0.001258648615244952%
+AGGATAGC 3474 0.0009563747352058099%
 
-gzip: unknown.r1.gz: unexpected end of file
-414694824
-
-#Equivelent assumed for unknown.r2.gz
-
-[rrichard@n053 part2]$ squeue -u rrichard
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-           2445257      long    RRPS7 rrichard  R 1-08:32:39      1 n056
-           2446664      long    RRPS7 rrichard  R    6:00:46      1 n068
-           2446668      long    RRPS7 rrichard  R    5:52:23      1 n063
-           2446666      long    RRPS7 rrichard  R    5:53:25      1 n020
-           2447099     short     bash rrichard  R       7:14      1 n053</code></pre>
+Total number of read sets: 363246735
+Total percentage of high quality read sets: 56.49713905893745%
+Total number of high quality read sets without index hopping: 204935791
+Total number of high quality read sets with index hopping: 288222
+Percentage of high quality read sets with index hopping: 0.14044262939152252%</code></pre>
 <p>Head of files:</p>
 <pre class="r"><code>[rrichard@n053 part2]$ head TGTTCCGT.r1.fastq
 @K00337:83:HJKJNBBXX:8:1101:4401:1701 1:N:0:1
@@ -556,7 +556,7 @@ NTGTGTAGACAAAAGTTTTCATGAGTCTGTAAGCTGTCTATTGTCTCCTGAAAAGAAACCAGAAGTTTTCCCCTAAATGT
 #A-AFFJJFJJJJJJJJJJJJJJJJ&lt;JAJFJJJJF&lt;JFJJJAJJJJJJJJJJJJJJJJJJJFJJJAJJFJJJFJJJF&lt;JJA-JJJ-&lt;AFAF--FF&lt;JAFJF
 @K00337:83:HJKJNBBXX:8:1101:1347:1191 4:N:0:1
 NAAATGCCATCTAGTGATGATGAGGCTACTGCTGACTCTCAACATTCTACTCCTCCAAAAAAGAAGAGAAAGATTCCAACCCCCAGAACCGATGACCGGCA</code></pre>
-<p>ONE test completed with the original, unmodified script (commented out areas included). At quality scores for reads and indexes set to 38, the process took ~20 hours with output as follows:</p>
+<p>ONE test completed with the original, unmodified script (commented out areas included). At quality scores for reads and indexes set to 38 and mismatch tolerance set to 0, the process took ~20 hours with output as follows:</p>
 <pre class="r"><code>Parameters:
 Demultiplexing run on the following files: 1294_S1_L008_R1_001.fastq.gz 1294_S1_L008_R4_001.fastq.gz 1294_S1_L008_R2_001.fastq.gz 1294_S1_L008_R3_001.fastq.gz
 Number of records set to 363246735
