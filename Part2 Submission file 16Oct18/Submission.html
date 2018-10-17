@@ -496,6 +496,9 @@ Percentage of high quality read sets with index hopping: 0.0%</code></pre>
 
 gzip: unknown.r1.gz: unexpected end of file
 414694824
+
+#Equivelent assumed for unknown.r2.gz
+
 [rrichard@n053 part2]$ squeue -u rrichard
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
            2445257      long    RRPS7 rrichard  R 1-08:32:39      1 n056
@@ -573,6 +576,13 @@ Total percentage of high quality read sets: 0.0%
 Total number of high quality read sets without index hopping: 0
 Total number of high quality read sets with index hopping: 0
 Percentage of high quality read sets with index hopping: 0.0%</code></pre>
+<pre class="r"><code>[rrichard@n053 justincase2]$ zcat unknown.r1.run1.gz | wc -l
+
+1452986940
+
+[rrichard@n053 justincase2]$ zcat unknown.r2.run1.gz | wc -l
+
+1452986940</code></pre>
 <pre class="r"><code>[rrichard@talapas-ln1 justincase2]$ zcat unknown.r1.run1.gz |head
 @K00337:83:HJKJNBBXX:8:1101:1265:1191 1:N:0:1
 GNCTGGCATTCCCAGAGACATCAGTACCCAGTTGGTTCAGACAGTTCCTCTATTGGTTGACAAGGTCTTCATTTCTAGTGATATCAACACGGTGTCTACAA
